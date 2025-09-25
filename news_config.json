@@ -56,13 +56,5 @@
     ]
   },
   "days_back": 30,
-  "max_items_per_source": 3,
-  "keywords": {
-    "ai_keywords": ["artificial intelligence", "machine learning", "AI", "ML", "neural network", "deep learning", "LLM", "GPT", "ChatGPT", "Claude", "Gemini"],
-    "github_keywords": ["git", "repository", "version control", "devops", "CI/CD", "collaboration", "code review", "pull request", "merge request"]
-  },
-  "filters": {
-    "exclude_titles": ["advertisement", "sponsored", "promotion"],
-    "min_title_length": 10
-  }
+  "max_items_per_source": 3
 }

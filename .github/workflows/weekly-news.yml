@@ -24,6 +24,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         
+    - name: Get current date
+      id: date
+      run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        
     - name: Generate news report
       run: |
         python news_agent.py --output weekly_news_$(date +%Y%m%d).md
@@ -33,7 +37,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'Add weekly AI & GitHub competitor news update'
-        title: 'Weekly Tech News Update - ${{ github.run_id }}'
+        title: 'Weekly Tech News Update - ${{ steps.date.outputs.date }}'
         body: |
           ## Weekly AI & GitHub Competitor News Update
           
@@ -48,7 +52,7 @@ jobs:
         delete-branch: true
         
     - name: Upload news report as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: weekly-news-report
         path: weekly_news_*.md

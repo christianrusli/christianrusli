@@ -10,7 +10,6 @@ presents them in a structured format.
 import json
 import datetime
 import feedparser
-import requests
 from typing import List, Dict, Any
 import re
 from dataclasses import dataclass
